@@ -1,0 +1,79 @@
+﻿@model IEnumerable<Examen.ApplicationCore.Domain.Electeur>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.CIN)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DateNaissance)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ElecteurId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MonGenre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MonBureauVote.Gouvernerat)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MonBureauVote.Ville)
+            </th>            
+            <th>
+                @Html.DisplayNameFor(model => model.MonBureauVote.Ecole)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MonBureauVote.NumSalle)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.CIN)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateNaissance)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ElecteurId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MonGenre)
+            </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MonBureauVote.Gouvernerat)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MonBureauVote.Ville)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MonBureauVote.Ecole)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MonBureauVote.NumSalle)
+                </td>
+
+
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id=item.ElecteurId }) |
+                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Delete", "Delete", new { id=item.ElecteurId })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
